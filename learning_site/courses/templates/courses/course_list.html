@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %} Available Courses {% endblock %}
+
+{% block content %}
+<!-- This a template tag-->
+<div class="cards">
+    {% for course in courses %}
+    <div class="card">
+        <!-- If we acces to an object or an attribu of the objet is neccesary to use {}-->
+        <header><a href="{% url 'courses:courseDetail' pk=course.pk %}">{{course.title}}</a></header>
+        <div class="card-copy">
+            {{course.description}}
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
